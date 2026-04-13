@@ -31,8 +31,8 @@ const Navbar = () => {
            
             {/* This is the new code, I have replaced the old code with this to make it more dynamic and reusable. */}
 
-            {navItems.map((item) => (
-              <MyNavLink to={item.path}>{item.text}</MyNavLink>
+            {navItems.map((item,ind) => (
+              <MyNavLink key={ind} to={item.path}>{item.text}</MyNavLink>
             ))}
 
             {/* 
