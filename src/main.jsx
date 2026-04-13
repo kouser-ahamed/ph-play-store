@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from "./layout/RootLayout";
 import Apps from "./components/pages/apps/Apps";
 import InstallApps from "./components/pages/installApps/InstallApps";
+import NotFoundPage from "./components/pages/NotFoundPage/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         element: <InstallApps> </InstallApps>
       }
     ],
-    errorElement: <h2>404 This page not found...!</h2>,
+    errorElement: <NotFoundPage> </NotFoundPage>,
   },
 ]);
 
