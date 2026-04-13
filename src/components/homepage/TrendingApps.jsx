@@ -1,5 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import AppCard from "../ui/AppCard";
+import { HashLoader } from "react-spinners";
+
 // import { useLoaderData } from "react-router";
 
 // const appsPromise = fetch("/data.json").then((res) => res.json());
@@ -12,12 +14,17 @@ const TrendingApps = () => {
   //   console.log("data from TrendingApps:", data);
 
   const [apps, setApps] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data.json");
       const data = await res.json();
-      setApps(data);
+
+      setTimeout(() => {
+        setApps(data);
+        setLoading(false);
+      }, 3000);
     };
     fetchData();
   }, []);
@@ -34,11 +41,17 @@ const TrendingApps = () => {
         </p>
       </div>
 
-      <div className=" grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5">
-        {apps.map((app, ind) => {
-          return <AppCard app={app} key={ind} />;
-        })}
-      </div>
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <HashLoader color="#ad46ff" />
+        </div>
+      ) : (
+        <div className=" grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5">
+          {apps.map((app, ind) => {
+            return <AppCard app={app} key={ind} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };
