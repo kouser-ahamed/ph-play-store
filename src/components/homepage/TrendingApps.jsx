@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import AppCard from "../ui/AppCard";
 import { HashLoader } from "react-spinners";
+import { Link } from "react-router";
 
 // import { useLoaderData } from "react-router";
 
@@ -24,7 +25,7 @@ const TrendingApps = () => {
       setTimeout(() => {
         setApps(data);
         setLoading(false);
-      }, 3000);
+      }, 1000);
     };
     fetchData();
   }, []);
@@ -47,11 +48,14 @@ const TrendingApps = () => {
         </div>
       ) : (
         <div className=" grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5">
-          {apps.map((app, ind) => {
+          {apps.slice(0, 6).map((app, ind) => {
             return <AppCard app={app} key={ind} />;
           })}
         </div>
       )}
+      <Link to={"/apps"} className="flex justify-center mt-8">
+        <button className="btn text-white bg-purple-500" >View All</button>
+      </Link>
     </div>
   );
 };
