@@ -1,10 +1,15 @@
 import React from 'react';
+import Banner from '../../homepage/Banner';
+import TrendingApps from '../../homepage/TrendingApps';
+import Stats from '../../homepage/Stats';
 
 const Homepage = () => {
     return (
-        <div>
-            Homepage
-        </div>
+        <>
+            <Banner> </Banner>
+            <Stats> </Stats>
+            <TrendingApps> </TrendingApps>
+        </>
     );
 };
 

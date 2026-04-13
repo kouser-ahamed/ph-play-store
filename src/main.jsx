@@ -7,6 +7,7 @@ import RootLayout from "./layout/RootLayout";
 import Apps from "./components/pages/apps/Apps";
 import InstallApps from "./components/pages/installApps/InstallApps";
 import NotFoundPage from "./components/pages/NotFoundPage/NotFoundPage";
+import Homepage from "./components/pages/homepage/Homepage";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,8 @@ const router = createBrowserRouter([
     Component: RootLayout,
     children: [
       {
-        path: "/",
-        element: <h2>HomePage</h2>,
+        index: true,
+        element: <Homepage> </Homepage>
       },
       {
         path: "/apps",
