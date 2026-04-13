@@ -18,7 +18,7 @@ const Navbar = () => {
               <MyNavLink to="/apps">Apps</MyNavLink>
             </li>
             <li>
-              <MyNavLink to="/installedApps">Installed Apps</MyNavLink>
+              <MyNavLink to="/installedApps">Installation</MyNavLink>
             </li>
           </ul>
           <button className="btn bg-purple-500 text-white rounded-xl">
