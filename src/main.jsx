@@ -4,6 +4,8 @@ import "./index.css";
 import { RouterProvider } from "react-router/dom";
 import { createBrowserRouter } from "react-router";
 import RootLayout from "./layout/RootLayout";
+import Apps from "./components/pages/apps/Apps";
+import InstallApps from "./components/pages/installApps/InstallApps";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,16 @@ const router = createBrowserRouter([
         path: "/",
         element: <h2>HomePage</h2>,
       },
+      {
+        path: "/apps",
+        element: <Apps> </Apps>
+      },
+      {
+        path: "/installedApps",
+        element: <InstallApps> </InstallApps>
+      }
     ],
+    errorElement: <h2>404 This page not found...!</h2>,
   },
 ]);
 
