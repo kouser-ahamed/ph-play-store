@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const UseApps = () => {
+const useApps = () => {
   const [apps, setApps] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,11 +12,11 @@ const UseApps = () => {
       setTimeout(() => {
         setApps(data);
         setLoading(false);
-      }, 1000);
+      }, 1000); 
     };
     fetchData();
   }, []);
   return { apps, loading };
 };
 
-export default UseApps;
+export default useApps;

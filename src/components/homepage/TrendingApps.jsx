@@ -1,7 +1,7 @@
 import AppCard from "../ui/AppCard";
 import { HashLoader } from "react-spinners";
 import { Link } from "react-router";
-import UseApps from "../../hooks/UseApps";
+import useApps from "../../hooks/useApps";
 
 // import { useLoaderData } from "react-router";
 
@@ -14,7 +14,7 @@ const TrendingApps = () => {
   //   const data = useLoaderData();
   //   console.log("data from TrendingApps:", data);
 
- const obj = UseApps();
+ const obj = useApps();
   const { apps, loading } = obj;
 
   return (

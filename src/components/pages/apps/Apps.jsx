@@ -1,9 +1,9 @@
 import { HashLoader } from "react-spinners";
 import AppCard from "../../ui/AppCard";
-import UseApps from "../../../hooks/UseApps";
+import useApps from "../../../hooks/useApps";
 
 const Apps = () => {
-  const obj = UseApps();
+  const obj = useApps();
   const { apps, loading } = obj;
   console.log(obj);
 
