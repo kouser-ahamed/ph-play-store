@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router";
 import useApps from "../../../hooks/useApps";
 import { HashLoader } from "react-spinners";
+import { InstallAppsContext } from "../../../context/InstallAppsContext";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
   const { id } = useParams();
 
   const { apps, loading } = useApps();
+  const { installedApps, setInstalledApps } = useContext(InstallAppsContext);
 
-  const [installedApps, setInstalledApps] = useState([]);
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[500px]">
@@ -28,6 +30,10 @@ const AppDetails = () => {
 
   const handleInstallApp = () => {
     setInstalledApps([...installedApps, app]);
+    toast.success(`${app.title} has been installed..!`, {
+      position: "top-right",
+      autoClose: 1000,
+    });
   };
 
   console.log("installed apps", installedApps);
