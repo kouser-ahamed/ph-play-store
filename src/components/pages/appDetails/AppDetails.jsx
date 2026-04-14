@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import useApps from "../../../hooks/useApps";
 import { HashLoader } from "react-spinners";
 
 const AppDetails = () => {
   const { id } = useParams();
-  console.log(id);
 
   const { apps, loading } = useApps();
-  console.log(apps, loading, "details page");
 
+  const [installedApps, setInstalledApps] = useState([]);
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[500px]">
@@ -19,7 +18,6 @@ const AppDetails = () => {
   }
 
   const app = apps.find((app) => String(app.id) === id);
-  console.log("findapp", app);
 
   // Safety check
   if (!app) {
@@ -27,6 +25,12 @@ const AppDetails = () => {
       <div className="text-center text-red-500 text-2xl">App not found</div>
     );
   }
+
+  const handleInstallApp = () => {
+    setInstalledApps([...installedApps, app]);
+  };
+
+  console.log("installed apps", installedApps);
 
   return (
     <div className="container mx-auto my-10">
@@ -43,7 +47,13 @@ const AppDetails = () => {
             {app.companyName}
           </span>
         </p>
-        <button className=" btn bg-purple-500 text-white"> Install now</button>
+        <button
+          onClick={handleInstallApp}
+          className=" btn bg-purple-500 text-white"
+        >
+          {" "}
+          Install now
+        </button>
       </div>
     </div>
   );
