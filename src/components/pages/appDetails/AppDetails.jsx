@@ -3,15 +3,19 @@ import { useParams } from 'react-router';
 import useApps from '../../../hooks/useApps';
 
 const AppDetails = () => {
-    
-    const params = useParams();
-    const { id } = params;
-    const {apps, loading} = useApps();
-    
+    const {id } = useParams();
+    console.log(id);
+
+    const obj = useApps();
+    const { apps,loading } = obj;
+    console.log(apps, loading ,"details page");
+
+    const app = apps.find((app ) => String(app.id) === id);
+    console.log('findapp', app);
+
     return (
         <div>
-            app details page
-            <p>App ID: {id}</p>
+            details
             
         </div>
     );
