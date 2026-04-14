@@ -1,7 +1,7 @@
-import React, { use, useEffect, useState } from "react";
 import AppCard from "../ui/AppCard";
 import { HashLoader } from "react-spinners";
 import { Link } from "react-router";
+import UseApps from "../../hooks/UseApps";
 
 // import { useLoaderData } from "react-router";
 
@@ -14,23 +14,8 @@ const TrendingApps = () => {
   //   const data = useLoaderData();
   //   console.log("data from TrendingApps:", data);
 
-  const [apps, setApps] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-
-      setTimeout(() => {
-        setApps(data);
-        setLoading(false);
-      }, 1000);
-    };
-    fetchData();
-  }, []);
-
-  console.log("Fetching data...", apps);
+ const obj = UseApps();
+  const { apps, loading } = obj;
 
   return (
     <div className="container mx-auto my-[60px]">
